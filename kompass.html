@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kompass – Personal OS</title>
+
+<!-- PWA -->
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIktvbXBhc3Mg4oCTIFBlcnNvbmFsIE9TIiwgInNob3J0X25hbWUiOiAiS29tcGFzcyIsICJkZXNjcmlwdGlvbiI6ICJEZWluIHBlcnPDtm5saWNoZXIgTGlmZS1PUyBBc3Npc3RlbnQgbWl0IEtJLUNvYWNoLCBLYWxvcmllbnRyYWNrZXIsIEd5bSBMb2cgdW5kIFBsYW5lci4iLCAic3RhcnRfdXJsIjogIi4iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiIzBiMGQxMCIsICJ0aGVtZV9jb2xvciI6ICIjMGIwZDEwIiwgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0LXByaW1hcnkiLCAiaWNvbnMiOiBbeyJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQTFNVElnTlRFeUlqNEtQSEpsWTNRZ2QybGtkR2c5SWpVeE1pSWdhR1ZwWjJoMFBTSTFNVElpSUhKNFBTSTVOaUlnWm1sc2JEMGlJekUwTVRjeFl5SXZQZ284WTJseVkyeGxJR040UFNJeU5UWWlJR041UFNJeU5UWWlJSEk5SWpFM05pSWdabWxzYkQwaWJtOXVaU0lnYzNSeWIydGxQU0lqWlRoaE16TmtJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqRTBJaTgrQ2p4c2FXNWxJSGd4UFNJeU5UWWlJSGt4UFNJeU5UWWlJSGd5UFNJeU5UWWlJSGt5UFNJeE1qSWlJSE4wY205clpUMGlJMlU0WVRNelpDSWdjM1J5YjJ0bExYZHBaSFJvUFNJeE5DSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWlCMGNtRnVjMlp2Y20wOUluSnZkR0YwWlNnek9DQXlOVFlnTWpVMktTSXZQZ284WTJseVkyeGxJR040UFNJeU5UWWlJR041UFNJeU5UWWlJSEk5SWpFd0lpQm1hV3hzUFNJalpUaGhNek5rSWk4K0Nqd3ZjM1puUGc9PSIsICJzaXplcyI6ICI1MTJ4NTEyIiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogImFueSJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0S1BISmxZM1FnZDJsa2RHZzlJalV4TWlJZ2FHVnBaMmgwUFNJMU1USWlJSEo0UFNJNU5pSWdabWxzYkQwaUl6RTBNVGN4WXlJdlBnbzhZMmx5WTJ4bElHTjRQU0l5TlRZaUlHTjVQU0l5TlRZaUlISTlJakUzTmlJZ1ptbHNiRDBpYm05dVpTSWdjM1J5YjJ0bFBTSWpaVGhoTXpOa0lpQnpkSEp2YTJVdGQybGtkR2c5SWpFMElpOCtDanhzYVc1bElIZ3hQU0l5TlRZaUlIa3hQU0l5TlRZaUlIZ3lQU0l5TlRZaUlIa3lQU0l4TWpJaUlITjBjbTlyWlQwaUkyVTRZVE16WkNJZ2MzUnliMnRsTFhkcFpIUm9QU0l4TkNJZ2MzUnliMnRsTFd4cGJtVmpZWEE5SW5KdmRXNWtJaUIwY21GdWMyWnZjbTA5SW5KdmRHRjBaU2d6T0NBeU5UWWdNalUyS1NJdlBnbzhZMmx5WTJ4bElHTjRQU0l5TlRZaUlHTjVQU0l5TlRZaUlISTlJakV3SWlCbWFXeHNQU0lqWlRoaE16TmtJaTgrQ2p3dmMzWm5QZz09IiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAibWFza2FibGUifV19">
+<meta name="theme-color" content="#0b0d10">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kompass">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI5NiIgZmlsbD0iIzE0MTcxYyIvPgo8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZThhMzNkIiBzdHJva2Utd2lkdGg9IjE0Ii8+CjxsaW5lIHgxPSIyNTYiIHkxPSIyNTYiIHgyPSIyNTYiIHkyPSIxMjIiIHN0cm9rZT0iI2U4YTMzZCIgc3Ryb2tlLXdpZHRoPSIxNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB0cmFuc2Zvcm09InJvdGF0ZSgzOCAyNTYgMjU2KSIvPgo8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjEwIiBmaWxsPSIjZThhMzNkIi8+Cjwvc3ZnPg==">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI5NiIgZmlsbD0iIzE0MTcxYyIvPgo8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE3NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZThhMzNkIiBzdHJva2Utd2lkdGg9IjE0Ii8+CjxsaW5lIHgxPSIyNTYiIHkxPSIyNTYiIHgyPSIyNTYiIHkyPSIxMjIiIHN0cm9rZT0iI2U4YTMzZCIgc3Ryb2tlLXdpZHRoPSIxNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB0cmFuc2Zvcm09InJvdGF0ZSgzOCAyNTYgMjU2KSIvPgo8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjEwIiBmaWxsPSIjZThhMzNkIi8+Cjwvc3ZnPg==">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0b0d10;
+    --surface:#14171c;
+    --surface-2:#1b1f26;
+    --surface-3:#20252d;
+    --border:#262b33;
+    --text:#ece9e4;
+    --text-dim:#9aa0a8;
+    --text-faint:#5f656e;
+    --accent:#e8a33d;
+    --accent-soft:#e8a33d22;
+    --accent-2:#4fa89b;
+    --accent-2-soft:#4fa89b22;
+    --danger:#e2604f;
+    --good:#6fcf97;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .serif{font-family:'Fraunces',serif;}
+
+  ::-webkit-scrollbar{width:8px;height:8px;}
+  ::-webkit-scrollbar-thumb{background:var(--surface-3);border-radius:4px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+
+  .app{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    min-height:100vh;
+  }
+
+  /* SIDEBAR */
+  .sidebar{
+    background:var(--surface);
+    border-right:1px solid var(--border);
+    padding:22px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:0 8px 22px 8px;
+    margin-bottom:10px;
+    border-bottom:1px solid var(--border);
+  }
+  .brand-mark{
+    width:30px;height:30px;flex:0 0 30px;
+    border-radius:50%;
+    border:1.5px solid var(--accent);
+    position:relative;
+  }
+  .brand-mark::after{
+    content:'';
+    position:absolute;
+    top:50%;left:50%;
+    width:2px;height:11px;
+    background:var(--accent);
+    transform-origin:bottom center;
+    transform:translate(-50%,-100%) rotate(38deg);
+  }
+  .brand-name{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    letter-spacing:0.02em;
+    font-weight:600;
+  }
+  .brand-sub{
+    font-size:10px;
+    color:var(--text-faint);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-top:1px;
+  }
+  .nav-item{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:10px 10px;
+    border-radius:10px;
+    color:var(--text-dim);
+    cursor:pointer;
+    font-size:13.5px;
+    font-weight:500;
+    transition:background .15s, color .15s;
+    user-select:none;
+  }
+  .nav-item:hover{background:var(--surface-2); color:var(--text);}
+  .nav-item.active{background:var(--accent-soft); color:var(--accent);}
+  .nav-icon{width:18px;height:18px;flex:0 0 18px;display:flex;align-items:center;justify-content:center;}
+  .nav-icon svg{width:100%;height:100%;}
+  .sidebar-footer{
+    margin-top:auto;
+    padding:12px 10px 0 10px;
+    border-top:1px solid var(--border);
+    font-size:11px;
+    color:var(--text-faint);
+  }
+
+  /* MAIN */
+  .main{padding:26px 34px 60px 34px; max-width:1180px;}
+  .view{display:none;}
+  .view.active{display:block; animation:fadeIn .25s ease;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
+
+  .page-head{margin-bottom:24px;}
+  .page-eyebrow{
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--text-faint); margin-bottom:6px; font-weight:600;
+  }
+  .page-title{font-family:'Fraunces',serif; font-size:28px; font-weight:600;}
+  .page-desc{color:var(--text-dim); font-size:13.5px; margin-top:4px;}
+
+  .grid{display:grid; gap:16px;}
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:18px 20px;
+  }
+  .card-title{
+    font-size:12px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--text-faint); font-weight:600; margin-bottom:12px;
+  }
+
+  button{font-family:'Inter',sans-serif; cursor:pointer;}
+  .btn{
+    background:var(--accent); color:#1a1207; border:none;
+    padding:9px 16px; border-radius:9px; font-weight:600; font-size:13px;
+  }
+  .btn:hover{filter:brightness(1.08);}
+  .btn-ghost{
+    background:var(--surface-2); color:var(--text); border:1px solid var(--border);
+    padding:9px 14px; border-radius:9px; font-size:13px; font-weight:500;
+  }
+  .btn-ghost:hover{background:var(--surface-3);}
+  .btn-icon{
+    background:var(--surface-2); border:1px solid var(--border); color:var(--text-dim);
+    width:30px;height:30px;border-radius:8px; display:flex; align-items:center; justify-content:center;
+    font-size:14px;
+  }
+  .btn-icon:hover{color:var(--danger); border-color:var(--danger);}
+
+  input,select,textarea{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    color:var(--text);
+    border-radius:8px;
+    padding:9px 11px;
+    font-family:'Inter',sans-serif;
+    font-size:13.5px;
+    outline:none;
+  }
+  input:focus,select:focus,textarea:focus{border-color:var(--accent);}
+  input::placeholder{color:var(--text-faint);}
+  label{font-size:12px; color:var(--text-dim); margin-bottom:5px; display:block; font-weight:500;}
+
+  .row{display:flex; gap:10px; flex-wrap:wrap;}
+  .row > *{flex:1;}
+
+  /* DASHBOARD */
+  .dash-top{display:grid; grid-template-columns:1.3fr 1fr; gap:16px; margin-bottom:16px;}
+  @media(max-width:900px){.dash-top{grid-template-columns:1fr;}}
+
+  .compass-wrap{display:flex; align-items:center; gap:26px; flex-wrap:wrap;}
+  .compass-legend{display:flex; flex-direction:column; gap:9px; flex:1; min-width:160px;}
+  .legend-row{display:flex; align-items:center; gap:9px; font-size:12.5px; color:var(--text-dim);}
+  .legend-dot{width:9px;height:9px;border-radius:50%;flex:0 0 9px;}
+  .legend-val{margin-left:auto; font-family:'JetBrains Mono',monospace; color:var(--text);}
+
+  .greeting{font-family:'Fraunces',serif; font-size:15.5px; font-style:italic; color:var(--text-dim); line-height:1.55;}
+
+  .stat-row{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:16px;}
+  @media(max-width:900px){.stat-row{grid-template-columns:repeat(2,1fr);}}
+  .stat-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:15px 17px;}
+  .stat-label{font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.06em; margin-bottom:7px; font-weight:600;}
+  .stat-val{font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:700;}
+  .stat-sub{font-size:11.5px; color:var(--text-dim); margin-top:3px;}
+
+  /* CHAT / COACH */
+  .coach-shell{
+    display:grid; grid-template-rows:1fr auto;
+    height:calc(100vh - 160px); min-height:420px;
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .chat-log{overflow-y:auto; padding:22px 24px; display:flex; flex-direction:column; gap:14px;}
+  .msg{max-width:72%; padding:11px 14px; border-radius:13px; font-size:13.8px; line-height:1.55;}
+  .msg.coach{
+    background:var(--surface-2); align-self:flex-start; border:1px solid var(--border);
+    border-bottom-left-radius:3px;
+    font-family:'Fraunces',serif; font-size:14.5px;
+  }
+  .msg.user{
+    background:var(--accent); color:#1a1207; align-self:flex-end;
+    border-bottom-right-radius:3px; font-weight:500;
+  }
+  .msg-time{font-size:10px; color:var(--text-faint); margin-top:4px; font-family:'JetBrains Mono',monospace;}
+  .msg.user .msg-time{color:#1a120799; text-align:right;}
+  .chat-input-bar{display:flex; gap:10px; padding:14px 16px; border-top:1px solid var(--border); background:var(--surface);}
+  .chat-input-bar input{flex:1; padding:11px 14px; border-radius:22px;}
+  .chat-suggestions{display:flex; gap:8px; padding:0 16px 12px 16px; flex-wrap:wrap;}
+  .chip{
+    background:var(--surface-2); border:1px solid var(--border); color:var(--text-dim);
+    padding:6px 12px; border-radius:20px; font-size:12px; cursor:pointer;
+  }
+  .chip:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* CALORIES */
+  .kcal-bar-bg{background:var(--surface-2); border-radius:10px; height:14px; overflow:hidden; margin:8px 0 4px 0;}
+  .kcal-bar-fill{height:100%; border-radius:10px; background:linear-gradient(90deg,var(--accent),#f4c069); transition:width .3s;}
+  .macro-row{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px;}
+  .macro-box{background:var(--surface-2); border-radius:10px; padding:10px 12px;}
+  .macro-name{font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.05em;}
+  .macro-val{font-family:'JetBrains Mono',monospace; font-size:16px; margin-top:3px;}
+  .macro-bar-bg{background:var(--surface-3); border-radius:6px; height:6px; margin-top:6px; overflow:hidden;}
+  .macro-bar-fill{height:100%; border-radius:6px;}
+
+  .list-row{
+    display:flex; align-items:center; gap:12px; padding:11px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .list-row:last-child{border-bottom:none;}
+  .list-main{flex:1;}
+  .list-title{font-size:13.5px; font-weight:500;}
+  .list-meta{font-size:11.5px; color:var(--text-faint); margin-top:2px;}
+  .list-val{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--accent);}
+
+  .empty{color:var(--text-faint); font-size:13px; padding:18px 0; text-align:center; font-style:italic;}
+
+  /* GYM */
+  .exercise-block{background:var(--surface-2); border-radius:10px; padding:12px 14px; margin-bottom:10px;}
+  .exercise-name{font-weight:600; font-size:13.5px; margin-bottom:8px;}
+  .set-chip{
+    display:inline-block; background:var(--surface-3); border-radius:7px;
+    padding:4px 9px; margin:0 6px 6px 0; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim);
+  }
+
+  /* TASKS */
+  .task-row{display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid var(--border);}
+  .task-row:last-child{border-bottom:none;}
+  .checkbox{
+    width:19px;height:19px; border-radius:6px; border:1.5px solid var(--border);
+    flex:0 0 19px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    background:var(--surface-2);
+  }
+  .checkbox.done{background:var(--good); border-color:var(--good);}
+  .task-title{flex:1; font-size:13.5px;}
+  .task-title.done{text-decoration:line-through; color:var(--text-faint);}
+  .prio{width:7px;height:7px;border-radius:50%; flex:0 0 7px;}
+  .prio.hoch{background:var(--danger);}
+  .prio.mittel{background:var(--accent);}
+  .prio.niedrig{background:var(--accent-2);}
+
+  /* HABITS */
+  .habit-row{display:flex; align-items:center; gap:14px; padding:11px 0; border-bottom:1px solid var(--border);}
+  .habit-row:last-child{border-bottom:none;}
+  .habit-check{
+    width:32px;height:32px;border-radius:9px; border:1.5px solid var(--border); background:var(--surface-2);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:15px; flex:0 0 32px;
+  }
+  .habit-check.done{background:var(--accent-2-soft); border-color:var(--accent-2); color:var(--accent-2);}
+  .habit-streak{margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim);}
+
+  /* GOALS */
+  .goal-row{padding:13px 0; border-bottom:1px solid var(--border);}
+  .goal-row:last-child{border-bottom:none;}
+  .goal-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;}
+  .goal-title{font-weight:500; font-size:13.5px;}
+  .goal-pct{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--accent-2);}
+  .goal-bar-bg{background:var(--surface-2); border-radius:6px; height:7px; overflow:hidden;}
+  .goal-bar-fill{background:var(--accent-2); height:100%; border-radius:6px;}
+  .goal-slider{width:100%; margin-top:8px; accent-color:var(--accent-2);}
+
+  /* MOOD/WATER */
+  .mood-picker{display:flex; gap:8px;}
+  .mood-opt{
+    width:42px;height:42px; border-radius:50%; background:var(--surface-2); border:1.5px solid var(--border);
+    display:flex; align-items:center; justify-content:center; font-size:19px; cursor:pointer;
+  }
+  .mood-opt.selected{border-color:var(--accent); background:var(--accent-soft);}
+  .water-track{display:flex; gap:8px; flex-wrap:wrap;}
+  .water-drop{
+    width:34px;height:34px;border-radius:9px; background:var(--surface-2); border:1.5px solid var(--border);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:15px;
+  }
+  .water-drop.filled{background:var(--accent-2-soft); border-color:var(--accent-2);}
+
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:900px){.two-col{grid-template-columns:1fr;}}
+
+  .note-item{background:var(--surface-2); border-radius:10px; padding:12px 14px; margin-bottom:10px; font-size:13px; line-height:1.5;}
+  .note-meta{font-size:10.5px; color:var(--text-faint); margin-top:6px; font-family:'JetBrains Mono',monospace;}
+
+  .subnav{display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap;}
+  .subnav-item{
+    padding:8px 14px; border-radius:9px; font-size:12.5px; font-weight:500;
+    background:var(--surface); border:1px solid var(--border); color:var(--text-dim); cursor:pointer;
+  }
+  .subnav-item.active{background:var(--accent-soft); color:var(--accent); border-color:var(--accent);}
+  .sub-view{display:none;}
+  .sub-view.active{display:block;}
+
+  .analyze-hint{font-size:12px; color:var(--text-faint); margin-left:10px;}
+  #analyze-btn.loading{opacity:.6; pointer-events:none;}
+  .meal-breakdown{margin-top:10px; font-size:12px; color:var(--text-dim);}
+  .meal-breakdown-item{display:flex; justify-content:space-between; padding:3px 0;}
+
+  .typing-dots{display:inline-flex; gap:4px; align-items:center; padding:3px 2px;}
+  .typing-dots span{width:6px;height:6px;border-radius:50%;background:var(--text-faint); animation:blinkdot 1.2s infinite ease-in-out;}
+  .typing-dots span:nth-child(2){animation-delay:.2s;}
+  .typing-dots span:nth-child(3){animation-delay:.4s;}
+  @keyframes blinkdot{0%,80%,100%{opacity:.3; transform:scale(.85);} 40%{opacity:1; transform:scale(1);}}
+
+  /* ---------- MOBILE: Sidebar wird zur unteren App-Navigation ---------- */
+  @media (max-width:760px){
+    html,body{overflow-x:hidden;}
+    .app{ grid-template-columns:1fr; }
+    .sidebar{
+      position:fixed; left:0; right:0; bottom:0; top:auto; z-index:100;
+      flex-direction:row; align-items:center; justify-content:space-between;
+      gap:2px; padding:6px 4px calc(6px + env(safe-area-inset-bottom)) 4px;
+      border-right:none; border-top:1px solid var(--border);
+      overflow-x:auto; -webkit-overflow-scrolling:touch;
+      background:rgba(20,23,28,0.97); backdrop-filter:blur(10px);
+    }
+    .brand, .sidebar-footer{display:none;}
+    .nav-item{
+      flex:1 0 auto; flex-direction:column; gap:3px; padding:7px 6px;
+      font-size:9.5px; text-align:center; white-space:nowrap; min-width:52px; border-radius:10px;
+    }
+    .nav-icon{font-size:17px; width:auto; height:auto;}
+    .main{padding:18px 16px calc(84px + env(safe-area-inset-bottom)) 16px;}
+    .dash-top, .two-col{grid-template-columns:1fr;}
+    .stat-row{grid-template-columns:repeat(2,1fr);}
+    .page-title{font-size:23px;}
+    .coach-shell{height:calc(100vh - 260px); min-height:340px;}
+    .compass-wrap{gap:16px;}
+    input,select,textarea{font-size:16px;} /* verhindert Auto-Zoom bei Fokus auf iOS */
+    .row{gap:8px;}
+  }
+  @media (max-width:400px){
+    .nav-item{font-size:8.8px; min-width:46px; padding:6px 4px;}
+    .main{padding:14px 12px calc(84px + env(safe-area-inset-bottom)) 12px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div>
+        <div class="brand-name">Kompass</div>
+        <div class="brand-sub">Personal OS</div>
+      </div>
+    </div>
+
+    <div class="nav-item active" data-view="dashboard">
+      <span class="nav-icon">◈</span> Dashboard
+    </div>
+    <div class="nav-item" data-view="coach">
+      <span class="nav-icon">◐</span> Coach
+    </div>
+    <div class="nav-item" data-view="kalorien">
+      <span class="nav-icon">▲</span> Ernährung
+    </div>
+    <div class="nav-item" data-view="gym">
+      <span class="nav-icon">▮</span> Gym Log
+    </div>
+    <div class="nav-item" data-view="planer">
+      <span class="nav-icon">▤</span> Planer
+    </div>
+    <div class="nav-item" data-view="habits">
+      <span class="nav-icon">◇</span> Gewohnheiten
+    </div>
+    <div class="nav-item" data-view="ziele">
+      <span class="nav-icon">◎</span> Ziele
+    </div>
+    <div class="nav-item" data-view="mehr">
+      <span class="nav-icon">✦</span> Mehr Tools
+    </div>
+
+    <div class="sidebar-footer">
+      Dein Kurs wird täglich neu berechnet.
+    </div>
+  </div>
+
+  <div class="main">
+
+    <!-- DASHBOARD -->
+    <div class="view active" id="view-dashboard">
+      <div class="page-head">
+        <div class="page-eyebrow" id="dash-date"></div>
+        <div class="page-title" id="dash-greeting">Willkommen zurück</div>
+      </div>
+
+      <div class="dash-top">
+        <div class="card">
+          <div class="card-title">Tageskurs</div>
+          <div class="compass-wrap">
+            <svg id="compass-svg" width="150" height="150" viewBox="0 0 150 150"></svg>
+            <div class="compass-legend" id="compass-legend"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Vom Coach</div>
+          <div class="greeting" id="dash-quote">„Lade...“</div>
+          <div style="margin-top:14px;">
+            <button class="btn-ghost" onclick="goTo('coach')" style="width:100%;">Mit dem Coach sprechen →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row" id="dash-stats"></div>
+
+      <div class="card">
+        <div class="card-title">Heute anstehend</div>
+        <div id="dash-tasks-preview"></div>
+      </div>
+    </div>
+
+    <!-- COACH -->
+    <div class="view" id="view-coach">
+      <div class="page-head">
+        <div class="page-eyebrow">Dein Begleiter</div>
+        <div class="page-title">Coach</div>
+        <div class="page-desc">Er kennt deine Zahlen — frag ihn alles.</div>
+      </div>
+      <div class="coach-shell">
+        <div class="chat-log" id="chat-log"></div>
+        <div>
+          <div class="chat-suggestions">
+            <div class="chip" onclick="sendQuick('Wie sieht mein Tag aus?')">Wie sieht mein Tag aus?</div>
+            <div class="chip" onclick="sendQuick('Motivier mich')">Motivier mich</div>
+            <div class="chip" onclick="sendQuick('Wie viele Kalorien habe ich noch?')">Kalorien übrig?</div>
+            <div class="chip" onclick="sendQuick('Soll ich heute trainieren?')">Training heute?</div>
+          </div>
+          <div class="chat-input-bar">
+            <input id="chat-input" placeholder="Schreib deinem Coach…" onkeydown="if(event.key==='Enter')sendChat()"/>
+            <button class="btn" onclick="sendChat()">Senden</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KALORIEN -->
+    <div class="view" id="view-kalorien">
+      <div class="page-head">
+        <div class="page-eyebrow">Ernährung</div>
+        <div class="page-title">Kalorientracker</div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Heutiges Ziel</div>
+          <div class="row" style="align-items:flex-end;">
+            <div>
+              <div class="stat-val mono" id="kcal-remaining">0</div>
+              <div class="stat-sub">kcal übrig von <span id="kcal-goal-display" class="mono">0</span></div>
+            </div>
+          </div>
+          <div class="kcal-bar-bg"><div class="kcal-bar-fill" id="kcal-bar" style="width:0%"></div></div>
+          <div class="macro-row" id="macro-row"></div>
+          <div style="margin-top:16px;">
+            <button class="btn-ghost" onclick="openGoalEdit()">Ziele anpassen</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Mahlzeit hinzufügen</div>
+          <div class="row">
+            <div style="flex:2">
+              <label>Was hast du gegessen?</label>
+              <input id="meal-name" placeholder="z.B. 2 Eier, 1 Scheibe Vollkornbrot, 150g Hähnchenbrust"/>
+            </div>
+          </div>
+          <div style="margin-top:9px;">
+            <button class="btn-ghost" id="analyze-btn" onclick="analyzeMeal()">🔍 Kalorien automatisch ermitteln</button>
+            <span class="analyze-hint" id="analyze-hint"></span>
+          </div>
+          <div class="row" style="margin-top:14px;">
+            <div><label>kcal</label><input id="meal-kcal" type="number" placeholder="0"/></div>
+            <div><label>Protein g</label><input id="meal-protein" type="number" placeholder="0"/></div>
+            <div><label>Kohlenhydrate g</label><input id="meal-carbs" type="number" placeholder="0"/></div>
+            <div><label>Fett g</label><input id="meal-fat" type="number" placeholder="0"/></div>
+          </div>
+          <button class="btn" style="margin-top:12px;" onclick="addMeal()">Hinzufügen</button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">Heutige Mahlzeiten</div>
+        <div id="meals-list"></div>
+      </div>
+    </div>
+
+    <!-- GYM -->
+    <div class="view" id="view-gym">
+      <div class="page-head">
+        <div class="page-eyebrow">Training</div>
+        <div class="page-title">Gym Log</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Neues Workout</div>
+        <div class="row">
+          <div><label>Workout-Name</label><input id="workout-name" placeholder="z.B. Push Day"/></div>
+        </div>
+        <div id="new-exercises" style="margin-top:12px;"></div>
+        <button class="btn-ghost" onclick="addExerciseField()">+ Übung hinzufügen</button>
+        <button class="btn" style="margin-left:10px;" onclick="saveWorkout()">Workout speichern</button>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">Verlauf</div>
+        <div id="workout-history"></div>
+      </div>
+    </div>
+
+    <!-- PLANER -->
+    <div class="view" id="view-planer">
+      <div class="page-head">
+        <div class="page-eyebrow">Organisation</div>
+        <div class="page-title">Alltagsplaner</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Neue Aufgabe</div>
+        <div class="row">
+          <div style="flex:2"><label>Aufgabe</label><input id="task-title" placeholder="Was steht an?"/></div>
+          <div><label>Datum</label><input id="task-date" type="date"/></div>
+          <div><label>Priorität</label>
+            <select id="task-prio">
+              <option value="niedrig">Niedrig</option>
+              <option value="mittel" selected>Mittel</option>
+              <option value="hoch">Hoch</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn" style="margin-top:12px;" onclick="addTask()">Hinzufügen</button>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">Alle Aufgaben</div>
+        <div id="tasks-list"></div>
+      </div>
+    </div>
+
+    <!-- HABITS -->
+    <div class="view" id="view-habits">
+      <div class="page-head">
+        <div class="page-eyebrow">Beständigkeit</div>
+        <div class="page-title">Gewohnheiten</div>
+      </div>
+      <div class="card">
+        <div class="row">
+          <input id="habit-name" placeholder="Neue Gewohnheit, z.B. Lesen"/>
+          <button class="btn" onclick="addHabit()" style="flex:0 0 auto;">Hinzufügen</button>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">Heute abhaken</div>
+        <div id="habits-list"></div>
+      </div>
+    </div>
+
+    <!-- ZIELE -->
+    <div class="view" id="view-ziele">
+      <div class="page-head">
+        <div class="page-eyebrow">Richtung</div>
+        <div class="page-title">Ziele</div>
+      </div>
+      <div class="card">
+        <div class="row">
+          <input id="goal-title" placeholder="Neues Ziel, z.B. 10km laufen"/>
+          <button class="btn" onclick="addGoal()" style="flex:0 0 auto;">Hinzufügen</button>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <div id="goals-list"></div>
+      </div>
+    </div>
+
+    <!-- MEHR TOOLS -->
+    <div class="view" id="view-mehr">
+      <div class="page-head">
+        <div class="page-eyebrow">Zusätzlich</div>
+        <div class="page-title">Weitere Tools</div>
+      </div>
+
+      <div class="subnav">
+        <div class="subnav-item active" data-sub="wasser">Wasser</div>
+        <div class="subnav-item" data-sub="schlaf">Schlaf</div>
+        <div class="subnav-item" data-sub="stimmung">Stimmung</div>
+        <div class="subnav-item" data-sub="notizen">Notizen</div>
+      </div>
+
+      <div class="sub-view active" id="sub-wasser">
+        <div class="card">
+          <div class="card-title">Wasser heute (Ziel: 8 Gläser)</div>
+          <div class="water-track" id="water-track"></div>
+        </div>
+      </div>
+
+      <div class="sub-view" id="sub-schlaf">
+        <div class="card">
+          <div class="card-title">Schlaf letzte Nacht</div>
+          <div class="row" style="align-items:flex-end;">
+            <div style="max-width:160px;"><label>Stunden</label><input id="sleep-hours" type="number" step="0.5" placeholder="7.5"/></div>
+            <button class="btn" onclick="saveSleep()" style="flex:0 0 auto;">Speichern</button>
+          </div>
+          <div class="stat-sub" style="margin-top:10px;" id="sleep-current"></div>
+        </div>
+      </div>
+
+      <div class="sub-view" id="sub-stimmung">
+        <div class="card">
+          <div class="card-title">Wie fühlst du dich heute?</div>
+          <div class="mood-picker" id="mood-picker"></div>
+        </div>
+      </div>
+
+      <div class="sub-view" id="sub-notizen">
+        <div class="card">
+          <div class="row">
+            <input id="note-text" placeholder="Notiz schreiben…" onkeydown="if(event.key==='Enter')addNote()"/>
+            <button class="btn" onclick="addNote()" style="flex:0 0 auto;">Speichern</button>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px;">
+          <div id="notes-list"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ---------- Lebensmitteldatenbank (pro 100g/ml, sofern nicht anders angegeben) ---------- */
+const FOOD_DB = [
+  {names:['ei','eier'], kcal100:155, protein100:13, carbs100:1.1, fat100:11, unitGrams:{stück:50}},
+  {names:['vollkornbrot','vollkorntoast'], kcal100:250, protein100:9, carbs100:41, fat100:3.5, unitGrams:{scheibe:35,scheiben:35}},
+  {names:['weißbrot','toast','toastbrot'], kcal100:265, protein100:8, carbs100:50, fat100:3.2, unitGrams:{scheibe:28,scheiben:28}},
+  {names:['reis','reis gekocht'], kcal100:130, protein100:2.7, carbs100:28, fat100:0.3, unitGrams:{portion:180}},
+  {names:['nudeln','pasta','spaghetti'], kcal100:158, protein100:5.8, carbs100:31, fat100:0.9, unitGrams:{portion:200}},
+  {names:['hähnchenbrust','hähnchen','hühnerbrust','chicken'], kcal100:165, protein100:31, carbs100:0, fat100:3.6, unitGrams:{stück:150}},
+  {names:['rinderhackfleisch','hackfleisch','rind hack'], kcal100:254, protein100:17, carbs100:0, fat100:20, unitGrams:{portion:150}},
+  {names:['lachs'], kcal100:208, protein100:20, carbs100:0, fat100:13, unitGrams:{stück:150}},
+  {names:['thunfisch'], kcal100:132, protein100:28, carbs100:1, fat100:1.3, unitGrams:{dose:150}},
+  {names:['banane'], kcal100:89, protein100:1.1, carbs100:23, fat100:0.3, unitGrams:{stück:120}},
+  {names:['apfel'], kcal100:52, protein100:0.3, carbs100:14, fat100:0.2, unitGrams:{stück:150}},
+  {names:['orange'], kcal100:47, protein100:0.9, carbs100:12, fat100:0.1, unitGrams:{stück:150}},
+  {names:['vollmilch','milch'], kcal100:64, protein100:3.3, carbs100:4.8, fat100:3.6, unitGrams:{glas:200,tasse:200}},
+  {names:['joghurt natur','naturjoghurt','joghurt'], kcal100:61, protein100:3.5, carbs100:4.7, fat100:3.3, unitGrams:{becher:150}},
+  {names:['magerquark','quark'], kcal100:67, protein100:12, carbs100:4, fat100:0.3, unitGrams:{becher:250}},
+  {names:['butter'], kcal100:717, protein100:0.9, carbs100:0.1, fat100:81, unitGrams:{el:14,tl:5}},
+  {names:['olivenöl','öl'], kcal100:884, protein100:0, carbs100:0, fat100:100, unitGrams:{el:13,tl:4.5}},
+  {names:['gouda','käse'], kcal100:356, protein100:25, carbs100:2.2, fat100:27, unitGrams:{scheibe:20}},
+  {names:['kartoffel','kartoffeln'], kcal100:77, protein100:2, carbs100:17, fat100:0.1, unitGrams:{stück:150}},
+  {names:['brokkoli'], kcal100:34, protein100:2.8, carbs100:7, fat100:0.4, unitGrams:{portion:150}},
+  {names:['salat','kopfsalat'], kcal100:15, protein100:1.4, carbs100:2.9, fat100:0.2, unitGrams:{portion:100}},
+  {names:['tomate','tomaten'], kcal100:18, protein100:0.9, carbs100:3.9, fat100:0.2, unitGrams:{stück:120}},
+  {names:['gurke'], kcal100:15, protein100:0.7, carbs100:3.6, fat100:0.1, unitGrams:{stück:300}},
+  {names:['haferflocken'], kcal100:372, protein100:13, carbs100:59, fat100:7, unitGrams:{portion:50}},
+  {names:['erdnussbutter'], kcal100:588, protein100:25, carbs100:20, fat100:50, unitGrams:{el:16,tl:5}},
+  {names:['mandeln'], kcal100:579, protein100:21, carbs100:22, fat100:50, unitGrams:{handvoll:30}},
+  {names:['honig'], kcal100:304, protein100:0.3, carbs100:82, fat100:0, unitGrams:{el:20,tl:7}},
+  {names:['zucker'], kcal100:400, protein100:0, carbs100:100, fat100:0, unitGrams:{el:12,tl:4}},
+  {names:['nutella'], kcal100:539, protein100:6.3, carbs100:57, fat100:31, unitGrams:{el:20,tl:7}},
+  {names:['pizza'], kcal100:266, protein100:11, carbs100:33, fat100:10, unitGrams:{stück:120}},
+  {names:['burger','hamburger','cheeseburger'], kcal100:0, protein100:0, carbs100:0, fat100:0, unitGrams:{stück:1}, fixedPerUnit:{kcal:550,protein:28,carbs:40,fat:29}},
+  {names:['pommes','pommes frites'], kcal100:312, protein100:3.4, carbs100:41, fat100:15, unitGrams:{portion:150}},
+  {names:['cola'], kcal100:42, protein100:0, carbs100:10.6, fat100:0, unitGrams:{glas:330,dose:330}},
+  {names:['bier'], kcal100:43, protein100:0.5, carbs100:3.6, fat100:0, unitGrams:{flasche:330,glas:330}},
+  {names:['wein'], kcal100:83, protein100:0.1, carbs100:2.6, fat100:0, unitGrams:{glas:150}},
+  {names:['proteinshake','whey','eiweißshake','protein shake'], kcal100:0, protein100:0, carbs100:0, fat100:0, unitGrams:{shake:1}, fixedPerUnit:{kcal:120,protein:24,carbs:3,fat:1.5}},
+  {names:['avocado'], kcal100:160, protein100:2, carbs100:8.5, fat100:15, unitGrams:{stück:200}},
+  {names:['müsli'], kcal100:370, protein100:9, carbs100:64, fat100:8, unitGrams:{portion:60}},
+  {names:['schokolade'], kcal100:545, protein100:5, carbs100:59, fat100:31, unitGrams:{riegel:40}},
+  {names:['granatapfel'], kcal100:83, protein100:1.7, carbs100:19, fat100:1.2, unitGrams:{stück:200}},
+  {names:['linsen'], kcal100:116, protein100:9, carbs100:20, fat100:0.4, unitGrams:{portion:150}},
+  {names:['bohnen','kidneybohnen'], kcal100:127, protein100:8.7, carbs100:23, fat100:0.5, unitGrams:{portion:150}},
+  {names:['tofu'], kcal100:76, protein100:8, carbs100:1.9, fat100:4.8, unitGrams:{portion:150}},
+  {names:['paprika'], kcal100:31, protein100:1, carbs100:6, fat100:0.3, unitGrams:{stück:120}},
+];
+const WORD_NUMS = {ein:1,eine:1,einen:1,einem:1,einer:1,zwei:2,drei:3,vier:4,fünf:5,sechs:6,sieben:7,acht:8,neun:9,zehn:10};
+
+function parseMealSegment(segment){
+  let seg = segment.trim().toLowerCase();
+  if(!seg) return null;
+  let qty=null, rest=seg;
+  const numMatch = seg.match(/^(\d+[.,]?\d*)\s*/);
+  if(numMatch){ qty=parseFloat(numMatch[1].replace(',','.')); rest=seg.slice(numMatch[0].length); }
+  else{
+    for(const w of Object.keys(WORD_NUMS)){
+      if(seg.startsWith(w+' ')){ qty=WORD_NUMS[w]; rest=seg.slice(w.length+1); break; }
+    }
+  }
+  if(qty===null) qty=1;
+  let unit=null;
+  const unitMatch = rest.match(/^(g|gramm|ml|stück|scheiben|scheibe|el|tl|tasse|glas|portion|becher|dose|handvoll|flasche|riegel|shake)\b\.?\s*/);
+  if(unitMatch){ unit=unitMatch[1]; rest=rest.slice(unitMatch[0].length); }
+  return {qty, unit, foodText:rest.trim()};
+}
+
+function matchFoodDB(foodText){
+  let best=null, bestLen=0;
+  for(const item of FOOD_DB){
+    for(const name of item.names){
+      if(foodText.includes(name) && name.length>bestLen){ best=item; bestLen=name.length; }
+    }
+  }
+  return best;
+}
+
+function computeSegmentMacros(item, qty, unit){
+  if(item.fixedPerUnit){
+    return {
+      kcal:Math.round(item.fixedPerUnit.kcal*qty),
+      protein:Math.round(item.fixedPerUnit.protein*qty*10)/10,
+      carbs:Math.round(item.fixedPerUnit.carbs*qty*10)/10,
+      fat:Math.round(item.fixedPerUnit.fat*qty*10)/10,
+      grams:null,
+    };
+  }
+  let grams;
+  if(unit==='g'||unit==='gramm'||unit==='ml') grams = qty;
+  else if(unit && item.unitGrams && item.unitGrams[unit]) grams = qty*item.unitGrams[unit];
+  else{
+    const fallbackUnit = item.unitGrams ? Object.values(item.unitGrams)[0] : 100;
+    grams = qty*(fallbackUnit||100);
+  }
+  const f = grams/100;
+  return {
+    kcal:Math.round(item.kcal100*f),
+    protein:Math.round(item.protein100*f*10)/10,
+    carbs:Math.round(item.carbs100*f*10)/10,
+    fat:Math.round(item.fat100*f*10)/10,
+    grams,
+  };
+}
+
+function parseMealText(text){
+  const segments = text.split(/,|\bund\b|\+|\n/i).map(s=>s.trim()).filter(Boolean);
+  const totals = {kcal:0,protein:0,carbs:0,fat:0};
+  const matched = [];
+  const unmatched = [];
+  segments.forEach(seg=>{
+    const parsed = parseMealSegment(seg);
+    if(!parsed || !parsed.foodText) return;
+    const item = matchFoodDB(parsed.foodText);
+    if(item){
+      const m = computeSegmentMacros(item, parsed.qty, parsed.unit);
+      totals.kcal += m.kcal; totals.protein += m.protein; totals.carbs += m.carbs; totals.fat += m.fat;
+      matched.push({text:seg, kcal:m.kcal});
+    } else {
+      unmatched.push(seg);
+    }
+  });
+  return {totals, matched, unmatched};
+}
+
+/* ---------- Anthropic API ---------- */
+async function callClaudeAPI(messages, system){
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({
+      model:"claude-sonnet-4-6",
+      max_tokens:1000,
+      system: system,
+      messages: messages,
+    })
+  });
+  if(!response.ok) throw new Error('API-Fehler '+response.status);
+  const data = await response.json();
+  return (data.content||[]).map(b=>b.text||'').join('\n').trim();
+}
+
+async function estimateWithAI(items){
+  const system = 'Du bist ein präziser Ernährungsschätzer. Antworte AUSSCHLIESSLICH mit einem validen JSON-Array, ohne Markdown-Codeblöcke, ohne Erklärtext davor oder danach. Format exakt: [{"name":"string","kcal":number,"protein":number,"carbs":number,"fat":number}]. Schätze realistische Nährwerte (protein/carbs/fat in Gramm) für die angegebene(n) Portion(en), basierend auf typischen Portionsgrößen.';
+  const userMsg = 'Schätze die Nährwerte für: ' + items.join('; ');
+  const text = await callClaudeAPI([{role:'user', content:userMsg}], system);
+  const cleaned = text.replace(/```json|```/gi,'').trim();
+  const parsed = JSON.parse(cleaned);
+  return Array.isArray(parsed) ? parsed : [];
+}
+
+async function analyzeMeal(){
+  const text = document.getElementById('meal-name').value.trim();
+  if(!text) return;
+  const btn = document.getElementById('analyze-btn');
+  const hint = document.getElementById('analyze-hint');
+  btn.classList.add('loading');
+  btn.textContent = '🔍 Analysiere…';
+  hint.textContent = '';
+
+  const {totals, matched, unmatched} = parseMealText(text);
+
+  if(unmatched.length){
+    hint.textContent = 'KI schätzt ' + unmatched.length + ' Posten…';
+    try{
+      const aiResults = await estimateWithAI(unmatched);
+      aiResults.forEach(r=>{
+        totals.kcal += Math.round(Number(r.kcal)||0);
+        totals.protein += Math.round((Number(r.protein)||0)*10)/10;
+        totals.carbs += Math.round((Number(r.carbs)||0)*10)/10;
+        totals.fat += Math.round((Number(r.fat)||0)*10)/10;
+      });
+      hint.textContent = matched.length ? ('Datenbank + KI-Schätzung kombiniert.') : 'Per KI geschätzt.';
+    }catch(e){
+      unmatched.forEach(()=>{ totals.kcal+=250; totals.protein+=10; totals.carbs+=25; totals.fat+=10; });
+      hint.textContent = 'Grobe Schätzung (KI nicht erreichbar) — bitte prüfen.';
+    }
+  } else {
+    hint.textContent = 'Aus Lebensmitteldatenbank ermittelt.';
+  }
+
+  document.getElementById('meal-kcal').value = Math.round(totals.kcal);
+  document.getElementById('meal-protein').value = Math.round(totals.protein*10)/10;
+  document.getElementById('meal-carbs').value = Math.round(totals.carbs*10)/10;
+  document.getElementById('meal-fat').value = Math.round(totals.fat*10)/10;
+
+  btn.classList.remove('loading');
+  btn.textContent = '🔍 Kalorien automatisch ermitteln';
+}
+
+/* ---------- utils ---------- */
+function todayKey(){
+  const d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function fmtTime(){
+  const d = new Date();
+  return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+}
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
+
+async function loadJSON(key, fallback){
+  try{
+    const r = await window.storage.get(key, false);
+    return r ? JSON.parse(r.value) : fallback;
+  }catch(e){ return fallback; }
+}
+async function saveJSON(key, value){
+  try{ await window.storage.set(key, JSON.stringify(value), false); }
+  catch(e){ console.error('storage error', e); }
+}
+
+/* ---------- state ---------- */
+let state = {
+  profile: { name:'', calorieGoal:2200, proteinGoal:150, carbGoal:220, fatGoal:70 },
+  meals: [],       // today's meals
+  workouts: [],
+  tasks: [],
+  habits: [],
+  goals: [],
+  notes: [],
+  chat: [],
+  daylog: { water:0, sleep:null, mood:null }
+};
+
+const DATE = todayKey();
+
+/* ---------- init / load all ---------- */
+async function initApp(){
+  state.profile = await loadJSON('profile', state.profile);
+  state.meals = await loadJSON('meals:'+DATE, []);
+  state.workouts = await loadJSON('workouts', []);
+  state.tasks = await loadJSON('tasks', []);
+  state.habits = await loadJSON('habits', []);
+  state.goals = await loadJSON('goals', []);
+  state.notes = await loadJSON('notes', []);
+  state.chat = await loadJSON('chat', []);
+  state.daylog = await loadJSON('daylog:'+DATE, { water:0, sleep:null, mood:null });
+
+  renderAll();
+  if(state.chat.length===0){
+    coachSay(openingLine());
+  }
+}
+
+/* ---------- navigation ---------- */
+document.querySelectorAll('.nav-item').forEach(el=>{
+  el.addEventListener('click', ()=>goTo(el.dataset.view));
+});
+function goTo(view){
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.view===view));
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active', v.id==='view-'+view));
+  if(view==='coach'){ setTimeout(scrollChatBottom, 50); }
+}
+document.querySelectorAll('.subnav-item').forEach(el=>{
+  el.addEventListener('click', ()=>{
+    document.querySelectorAll('.subnav-item').forEach(n=>n.classList.toggle('active', n===el));
+    document.querySelectorAll('.sub-view').forEach(v=>v.classList.toggle('active', v.id==='sub-'+el.dataset.sub));
+  });
+});
+
+/* ---------- render orchestration ---------- */
+function renderAll(){
+  renderDashboard();
+  renderChat();
+  renderKalorien();
+  renderGym();
+  renderTasks();
+  renderHabits();
+  renderGoals();
+  renderMehr();
+}
+
+/* ================= DASHBOARD ================= */
+function renderDashboard(){
+  const d = new Date();
+  const opts = { weekday:'long', day:'numeric', month:'long' };
+  document.getElementById('dash-date').textContent = d.toLocaleDateString('de-DE', opts);
+  const hour = d.getHours();
+  const greet = hour<11 ? 'Guten Morgen' : hour<18 ? 'Guten Tag' : 'Guten Abend';
+  document.getElementById('dash-greeting').textContent = greet + (state.profile.name? ', '+state.profile.name : '');
+
+  const kcalUsed = state.meals.reduce((s,m)=>s+Number(m.kcal||0),0);
+  const kcalPct = Math.min(100, Math.round((kcalUsed/state.profile.calorieGoal)*100)) || 0;
+
+  const tasksToday = state.tasks.filter(t=>t.date===DATE);
+  const tasksDone = tasksToday.filter(t=>t.done).length;
+  const tasksPct = tasksToday.length ? Math.round((tasksDone/tasksToday.length)*100) : 100;
+
+  const habitsPct = state.habits.length ? Math.round((state.habits.filter(h=>(h.completedDates||[]).includes(DATE)).length/state.habits.length)*100) : 0;
+
+  const waterPct = Math.min(100, Math.round((state.daylog.water/8)*100));
+
+  drawCompass([
+    {label:'Ernährung', pct:kcalPct, color:'#e8a33d'},
+    {label:'Aufgaben', pct:tasksPct, color:'#4fa89b'},
+    {label:'Gewohnheiten', pct:habitsPct, color:'#6fcf97'},
+    {label:'Wasser', pct:waterPct, color:'#5b9bd5'},
+  ]);
+
+  document.getElementById('dash-quote').textContent = '„' + pickQuote() + '“';
+
+  const streak = bestHabitStreak();
+  const daysSinceWorkout = daysSinceLastWorkout();
+
+  document.getElementById('dash-stats').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-label">Kalorien übrig</div>
+      <div class="stat-val">${Math.max(0, state.profile.calorieGoal - kcalUsed)}</div>
+      <div class="stat-sub">von ${state.profile.calorieGoal} kcal</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Aufgaben heute</div>
+      <div class="stat-val">${tasksDone}/${tasksToday.length}</div>
+      <div class="stat-sub">erledigt</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Letztes Training</div>
+      <div class="stat-val">${daysSinceWorkout===null? '–' : daysSinceWorkout+'d'}</div>
+      <div class="stat-sub">${daysSinceWorkout===0? 'heute' : 'her'}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Bester Streak</div>
+      <div class="stat-val">${streak}</div>
+      <div class="stat-sub">Tage in Folge</div>
+    </div>
+  `;
+
+  const preview = tasksToday.slice(0,5);
+  document.getElementById('dash-tasks-preview').innerHTML = preview.length ? preview.map(t=>`
+    <div class="list-row">
+      <span class="prio ${t.prio}"></span>
+      <div class="list-main">
+        <div class="list-title" style="${t.done?'text-decoration:line-through;color:var(--text-faint);':''}">${escapeHtml(t.title)}</div>
+      </div>
+    </div>`).join('') : '<div class="empty">Keine Aufgaben für heute — nutze den Planer, um deinen Tag zu strukturieren.</div>';
+}
+
+function drawCompass(rings){
+  const svg = document.getElementById('compass-svg');
+  const size=150, center=75;
+  let radius=64;
+  let html='';
+  // outer compass ticks
+  for(let i=0;i<12;i++){
+    const angle = (i*30)*Math.PI/180;
+    const x1 = center + Math.sin(angle)*70, y1 = center - Math.cos(angle)*70;
+    const x2 = center + Math.sin(angle)*(i%3===0?64:67), y2 = center - Math.cos(angle)*(i%3===0?64:67);
+    html += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#262b33" stroke-width="1.5"/>`;
+  }
+  rings.forEach(r=>{
+    const circ = 2*Math.PI*radius;
+    const offset = circ - (r.pct/100)*circ;
+    html += `<circle cx="${center}" cy="${center}" r="${radius}" fill="none" stroke="#1b1f26" stroke-width="7"/>`;
+    html += `<circle cx="${center}" cy="${center}" r="${radius}" fill="none" stroke="${r.color}" stroke-width="7" stroke-linecap="round"
+      stroke-dasharray="${circ}" stroke-dashoffset="${offset}" transform="rotate(-90 ${center} ${center})"/>`;
+    radius -= 12;
+  });
+  const avg = Math.round(rings.reduce((s,r)=>s+r.pct,0)/rings.length);
+  html += `<text x="${center}" y="${center-2}" text-anchor="middle" fill="#ece9e4" font-family="JetBrains Mono" font-size="20" font-weight="700">${avg}%</text>`;
+  html += `<text x="${center}" y="${center+16}" text-anchor="middle" fill="#5f656e" font-family="Inter" font-size="9" letter-spacing="1">KURS</text>`;
+  svg.innerHTML = html;
+
+  document.getElementById('compass-legend').innerHTML = rings.map(r=>`
+    <div class="legend-row">
+      <span class="legend-dot" style="background:${r.color}"></span>
+      <span>${r.label}</span>
+      <span class="legend-val">${r.pct}%</span>
+    </div>`).join('');
+}
+
+function bestHabitStreak(){
+  if(!state.habits.length) return 0;
+  let best=0;
+  state.habits.forEach(h=>{
+    let streak=0;
+    let d=new Date();
+    while(true){
+      const key = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      if((h.completedDates||[]).includes(key)){ streak++; d.setDate(d.getDate()-1); } else break;
+    }
+    if(streak>best) best=streak;
+  });
+  return best;
+}
+function daysSinceLastWorkout(){
+  if(!state.workouts.length) return null;
+  const dates = state.workouts.map(w=>new Date(w.date)).sort((a,b)=>b-a);
+  const diff = Math.floor((new Date()-dates[0])/(1000*60*60*24));
+  return diff;
+}
+const QUOTES = [
+  'Disziplin ist die Brücke zwischen Zielen und Ergebnissen.',
+  'Kleine, konstante Schritte schlagen große, seltene Sprünge.',
+  'Du musst nicht perfekt sein — nur ehrlich mit dir selbst.',
+  'Der beste Zeitpunkt anzufangen war gestern. Der zweitbeste ist jetzt.',
+  'Fortschritt zeigt sich selten sofort, aber er summiert sich immer.',
+];
+function pickQuote(){ return QUOTES[new Date().getDate() % QUOTES.length]; }
+
+/* ================= COACH / CHAT ================= */
+function scrollChatBottom(){
+  const log = document.getElementById('chat-log');
+  log.scrollTop = log.scrollHeight;
+}
+function renderChat(){
+  const log = document.getElementById('chat-log');
+  log.innerHTML = state.chat.map(m=>`
+    <div class="msg ${m.role}">
+      ${escapeHtml(m.text)}
+      <div class="msg-time">${m.time}</div>
+    </div>`).join('');
+  scrollChatBottom();
+}
+function openingLine(){
+  const hour = new Date().getHours();
+  const greet = hour<11 ? 'Guten Morgen' : hour<18 ? 'Guten Tag' : 'Guten Abend';
+  return `${greet}. Ich bin dein Coach — ich behalte deine Kalorien, Aufgaben, Trainings und Gewohnheiten im Blick. Frag mich einfach etwas, oder erzähl mir, wie's dir geht.`;
+}
+async function coachSay(text){
+  state.chat.push({role:'coach', text, time:fmtTime()});
+  await saveJSON('chat', state.chat);
+  renderChat();
+}
+async function userSay(text){
+  state.chat.push({role:'user', text, time:fmtTime()});
+  await saveJSON('chat', state.chat);
+  renderChat();
+}
+function sendQuick(text){
+  document.getElementById('chat-input').value = text;
+  sendChat();
+}
+function showTyping(){
+  const log = document.getElementById('chat-log');
+  if(document.getElementById('typing-indicator')) return;
+  const div = document.createElement('div');
+  div.className='msg coach';
+  div.id='typing-indicator';
+  div.innerHTML = '<span class="typing-dots"><span></span><span></span><span></span></span>';
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+function hideTyping(){
+  const el = document.getElementById('typing-indicator');
+  if(el) el.remove();
+}
+function buildCoachSystemPrompt(){
+  const kcalUsed = state.meals.reduce((s,m)=>s+Number(m.kcal||0),0);
+  const kcalLeft = state.profile.calorieGoal - kcalUsed;
+  const protein = state.meals.reduce((s,m)=>s+Number(m.protein||0),0);
+  const carbs = state.meals.reduce((s,m)=>s+Number(m.carbs||0),0);
+  const fat = state.meals.reduce((s,m)=>s+Number(m.fat||0),0);
+  const tasksToday = state.tasks.filter(t=>t.date===DATE);
+  const tasksOpenList = tasksToday.filter(t=>!t.done).map(t=>t.title);
+  const overdue = state.tasks.filter(t=>!t.done && t.date<DATE).map(t=>t.title);
+  const daysSince = daysSinceLastWorkout();
+  const lastWorkout = state.workouts[0];
+  const habitsSummary = state.habits.length
+    ? state.habits.map(h=>`${h.name} (Streak: ${habitStreak(h)}d, heute ${(h.completedDates||[]).includes(DATE)?'erledigt':'offen'})`).join('; ')
+    : 'keine angelegt';
+  const goalsSummary = state.goals.length
+    ? state.goals.map(g=>`${g.title}: ${g.progress}%`).join('; ')
+    : 'keine angelegt';
+
+  return `Du bist "Coach", der autonome persönliche KI-Begleiter in der App "Kompass"${state.profile.name?(' von '+state.profile.name):''}. Du denkst und antwortest wie eine fortgeschrittene, eigenständige KI: proaktiv, direkt, ehrlich, mit echten Einschätzungen und Verstand statt generischer Floskeln. Du bist warmherzig, aber schmeichelst nicht grundlos, und du traust dich, unbequeme Wahrheiten anzusprechen, wenn es hilfreich ist. Antworte in natürlichem Deutsch, als Fließtext ohne Markdown-Formatierung und ohne Sternchen, in normaler Chat-Länge (meist 2-5 Sätze, bei Bedarf auch mehr). Erkenne eigenständig Muster in den Daten (z.B. Schlafmangel, ausbleibendes Training, unausgewogene Ernährung, überfällige Aufgaben, sinkende Streaks) und sprich sie proaktiv an, auch ohne direkte Nachfrage. Gib konkrete, umsetzbare Ratschläge basierend auf den echten Zahlen unten, nicht auf Vermutungen. Du erinnerst dich an den bisherigen Gesprächsverlauf.
+
+AKTUELLE DATEN DES NUTZERS (heute: ${DATE}):
+Ernährung: ${kcalUsed} von ${state.profile.calorieGoal} kcal verbraucht, ${kcalLeft} übrig. Protein ${protein}/${state.profile.proteinGoal}g, Kohlenhydrate ${carbs}/${state.profile.carbGoal}g, Fett ${fat}/${state.profile.fatGoal}g.
+Aufgaben heute: ${tasksToday.length} gesamt, offen: ${tasksOpenList.length ? tasksOpenList.join(', ') : 'keine'}. Überfällige Aufgaben: ${overdue.length ? overdue.join(', ') : 'keine'}.
+Training: letztes Workout ${daysSince===null ? 'noch nie geloggt' : ('vor '+daysSince+' Tag(en)')}${lastWorkout ? (', zuletzt: "'+lastWorkout.name+'"') : ''}. Insgesamt geloggte Workouts: ${state.workouts.length}.
+Gewohnheiten: ${habitsSummary}.
+Ziele: ${goalsSummary}.
+Wasser heute: ${state.daylog.water}/8 Gläser. Schlaf letzte Nacht: ${state.daylog.sleep ? state.daylog.sleep+'h' : 'nicht erfasst'}. Stimmung heute: ${state.daylog.mood || 'nicht erfasst'}.
+
+Nutze diese Daten aktiv und konkret in deinen Antworten.`;
+}
+async function askCoachAI(){
+  const system = buildCoachSystemPrompt();
+  const messages = state.chat.map(m=>({role: m.role==='coach'?'assistant':'user', content:m.text}));
+  return await callClaudeAPI(messages, system);
+}
+async function sendChat(){
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if(!text) return;
+  input.value='';
+  await userSay(text);
+  goTo('coach');
+  showTyping();
+  try{
+    const reply = await askCoachAI();
+    hideTyping();
+    await coachSay(reply);
+  }catch(e){
+    hideTyping();
+    await coachSay(generateCoachReply(text));
+  }
+}
+function generateCoachReply(msg){
+  const m = msg.toLowerCase();
+  const kcalUsed = state.meals.reduce((s,x)=>s+Number(x.kcal||0),0);
+  const kcalLeft = state.profile.calorieGoal - kcalUsed;
+  const tasksToday = state.tasks.filter(t=>t.date===DATE);
+  const tasksOpen = tasksToday.filter(t=>!t.done).length;
+  const daysSince = daysSinceLastWorkout();
+
+  if(m.includes('kalorien')||m.includes('essen')||m.includes('kcal')){
+    return kcalLeft>0
+      ? `Du hast heute noch ${kcalLeft} kcal übrig (${kcalUsed} von ${state.profile.calorieGoal} kcal verbraucht). Passt gut, wenn du noch eine ausgewogene Mahlzeit einplanst.`
+      : `Du hast dein Kalorienziel um ${Math.abs(kcalLeft)} kcal überschritten. Kein Drama — achte morgen einfach wieder auf dein Ziel.`;
+  }
+  if(m.includes('training')||m.includes('gym')||m.includes('workout')||m.includes('sport')){
+    if(daysSince===null) return 'Ich sehe noch kein geloggtes Training. Leg doch heute mit einem kurzen Workout los — schon 20 Minuten zählen.';
+    if(daysSince===0) return 'Du hast heute schon trainiert — stark. Denk an ausreichend Protein und Erholung.';
+    if(daysSince>=3) return `Dein letztes Training ist ${daysSince} Tage her. Zeit für eine neue Einheit — dein Körper wird es dir danken.`;
+    return `Dein letztes Training war vor ${daysSince} Tag(en). Wenn du dich erholt fühlst, ist heute ein guter Tag dafür.`;
+  }
+  if(m.includes('aufgabe')||m.includes('planen')||m.includes('todo')||m.includes('tag aus')){
+    return tasksOpen>0
+      ? `Du hast heute noch ${tasksOpen} offene Aufgabe(n). Sortier sie nach Priorität und starte mit der wichtigsten.`
+      : 'Alle heutigen Aufgaben sind erledigt — sauber. Nutze die freie Zeit bewusst.';
+  }
+  if(m.includes('schlaf')||m.includes('müde')){
+    return state.daylog.sleep
+      ? `Du hast ${state.daylog.sleep}h geschlafen. ${state.daylog.sleep<6.5?'Das ist etwas wenig — versuch heute früher ins Bett zu gehen.':'Solide Basis für den Tag.'}`
+      : 'Du hast heute noch keine Schlafzeit eingetragen. Trag sie unter "Mehr Tools" ein, dann kann ich dir gezielter helfen.';
+  }
+  if(m.includes('wasser')){
+    return `Du hast heute ${state.daylog.water} von 8 Gläsern Wasser getrunken. ${state.daylog.water<4?'Denk dran, regelmäßig zu trinken.':'Gut dabei.'}`;
+  }
+  if(m.includes('motivi')||m.includes('motivation')){
+    return pickQuote() + ' Du machst das gut — bleib dran.';
+  }
+  if(m.includes('hallo')||m.includes('hey')||m.includes('hi ')){
+    return 'Hey! Schön, dass du da bist. Wie kann ich dir heute helfen?';
+  }
+  // fallback: proactive summary
+  const bits=[];
+  bits.push(`Kalorien: noch ${Math.max(0,kcalLeft)} kcal übrig.`);
+  bits.push(`Aufgaben: ${tasksOpen} offen.`);
+  if(daysSince!==null && daysSince>=2) bits.push(`Letztes Training vor ${daysSince} Tagen.`);
+  return `Verstanden. Kurzer Überblick: ${bits.join(' ')} Sag mir, wo du Unterstützung brauchst.`;
+}
+
+/* ================= KALORIEN ================= */
+function renderKalorien(){
+  const p = state.profile;
+  const kcalUsed = state.meals.reduce((s,m)=>s+Number(m.kcal||0),0);
+  const protein = state.meals.reduce((s,m)=>s+Number(m.protein||0),0);
+  const carbs = state.meals.reduce((s,m)=>s+Number(m.carbs||0),0);
+  const fat = state.meals.reduce((s,m)=>s+Number(m.fat||0),0);
+
+  document.getElementById('kcal-remaining').textContent = Math.max(0, p.calorieGoal - kcalUsed);
+  document.getElementById('kcal-goal-display').textContent = p.calorieGoal;
+  document.getElementById('kcal-bar').style.width = Math.min(100,(kcalUsed/p.calorieGoal)*100)+'%';
+
+  const macros = [
+    {name:'Protein', val:protein, goal:p.proteinGoal, color:'#e8a33d'},
+    {name:'Kohlenhydrate', val:carbs, goal:p.carbGoal, color:'#4fa89b'},
+    {name:'Fett', val:fat, goal:p.fatGoal, color:'#6fcf97'},
+  ];
+  document.getElementById('macro-row').innerHTML = macros.map(mc=>`
+    <div class="macro-box">
+      <div class="macro-name">${mc.name}</div>
+      <div class="macro-val">${mc.val}g <span style="color:var(--text-faint); font-size:12px;">/ ${mc.goal}g</span></div>
+      <div class="macro-bar-bg"><div class="macro-bar-fill" style="width:${Math.min(100,(mc.val/mc.goal)*100)}%; background:${mc.color}"></div></div>
+    </div>`).join('');
+
+  document.getElementById('meals-list').innerHTML = state.meals.length ? state.meals.map(m=>`
+    <div class="list-row">
+      <div class="list-main">
+        <div class="list-title">${escapeHtml(m.name)}</div>
+        <div class="list-meta">P ${m.protein||0}g · K ${m.carbs||0}g · F ${m.fat||0}g</div>
+      </div>
+      <div class="list-val">${m.kcal} kcal</div>
+      <div class="btn-icon" onclick="deleteMeal('${m.id}')">✕</div>
+    </div>`).join('') : '<div class="empty">Noch keine Mahlzeit heute eingetragen.</div>';
+}
+async function addMeal(){
+  const name = document.getElementById('meal-name').value.trim();
+  const kcal = Number(document.getElementById('meal-kcal').value)||0;
+  if(!name || !kcal) return;
+  state.meals.push({
+    id:uid(), name, kcal,
+    protein:Number(document.getElementById('meal-protein').value)||0,
+    carbs:Number(document.getElementById('meal-carbs').value)||0,
+    fat:Number(document.getElementById('meal-fat').value)||0,
+  });
+  await saveJSON('meals:'+DATE, state.meals);
+  ['meal-name','meal-kcal','meal-protein','meal-carbs','meal-fat'].forEach(id=>document.getElementById(id).value='');
+  renderKalorien(); renderDashboard();
+}
+async function deleteMeal(id){
+  state.meals = state.meals.filter(m=>m.id!==id);
+  await saveJSON('meals:'+DATE, state.meals);
+  renderKalorien(); renderDashboard();
+}
+function openGoalEdit(){
+  const cg = prompt('Kalorienziel (kcal):', state.profile.calorieGoal);
+  if(cg===null) return;
+  const pg = prompt('Protein-Ziel (g):', state.profile.proteinGoal);
+  const kg = prompt('Kohlenhydrate-Ziel (g):', state.profile.carbGoal);
+  const fg = prompt('Fett-Ziel (g):', state.profile.fatGoal);
+  state.profile.calorieGoal = Number(cg)||state.profile.calorieGoal;
+  state.profile.proteinGoal = Number(pg)||state.profile.proteinGoal;
+  state.profile.carbGoal = Number(kg)||state.profile.carbGoal;
+  state.profile.fatGoal = Number(fg)||state.profile.fatGoal;
+  saveJSON('profile', state.profile);
+  renderKalorien(); renderDashboard();
+}
+
+/* ================= GYM ================= */
+let newExerciseFields = [];
+function addExerciseField(){
+  const id = uid();
+  newExerciseFields.push(id);
+  const div = document.createElement('div');
+  div.className='exercise-block';
+  div.id='ex-'+id;
+  div.innerHTML = `
+    <div class="row">
+      <input placeholder="Übung, z.B. Bankdrücken" class="ex-name" style="flex:2"/>
+      <input placeholder="Sätze x Wdh, z.B. 4x8" class="ex-sets"/>
+      <input placeholder="Gewicht kg" class="ex-weight" type="number"/>
+    </div>`;
+  document.getElementById('new-exercises').appendChild(div);
+}
+async function saveWorkout(){
+  const name = document.getElementById('workout-name').value.trim() || 'Workout';
+  const exercises = newExerciseFields.map(id=>{
+    const block = document.getElementById('ex-'+id);
+    return {
+      name: block.querySelector('.ex-name').value.trim(),
+      sets: block.querySelector('.ex-sets').value.trim(),
+      weight: block.querySelector('.ex-weight').value.trim(),
+    };
+  }).filter(e=>e.name);
+  if(!exercises.length) return;
+  state.workouts.unshift({ id:uid(), date:DATE, name, exercises });
+  await saveJSON('workouts', state.workouts);
+  document.getElementById('workout-name').value='';
+  document.getElementById('new-exercises').innerHTML='';
+  newExerciseFields=[];
+  renderGym(); renderDashboard();
+}
+async function deleteWorkout(id){
+  state.workouts = state.workouts.filter(w=>w.id!==id);
+  await saveJSON('workouts', state.workouts);
+  renderGym(); renderDashboard();
+}
+function renderGym(){
+  document.getElementById('workout-history').innerHTML = state.workouts.length ? state.workouts.map(w=>`
+    <div style="margin-bottom:14px;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-weight:600; font-size:13.5px;">${escapeHtml(w.name)} <span style="color:var(--text-faint); font-weight:400; font-size:11.5px;">· ${w.date}</span></div>
+        <div class="btn-icon" onclick="deleteWorkout('${w.id}')">✕</div>
+      </div>
+      <div style="margin-top:8px;">
+        ${w.exercises.map(e=>`<span class="set-chip">${escapeHtml(e.name)} ${e.sets?('· '+e.sets):''} ${e.weight?('· '+e.weight+'kg'):''}</span>`).join('')}
+      </div>
+    </div>`).join('') : '<div class="empty">Noch keine Workouts geloggt.</div>';
+}
+
+/* ================= PLANER / TASKS ================= */
+document.getElementById('task-date').value = DATE;
+async function addTask(){
+  const title = document.getElementById('task-title').value.trim();
+  if(!title) return;
+  const date = document.getElementById('task-date').value || DATE;
+  const prio = document.getElementById('task-prio').value;
+  state.tasks.push({ id:uid(), title, date, prio, done:false });
+  await saveJSON('tasks', state.tasks);
+  document.getElementById('task-title').value='';
+  renderTasks(); renderDashboard();
+}
+async function toggleTask(id){
+  const t = state.tasks.find(t=>t.id===id);
+  t.done = !t.done;
+  await saveJSON('tasks', state.tasks);
+  renderTasks(); renderDashboard();
+}
+async function deleteTask(id){
+  state.tasks = state.tasks.filter(t=>t.id!==id);
+  await saveJSON('tasks', state.tasks);
+  renderTasks(); renderDashboard();
+}
+function renderTasks(){
+  const sorted = [...state.tasks].sort((a,b)=> a.date.localeCompare(b.date));
+  document.getElementById('tasks-list').innerHTML = sorted.length ? sorted.map(t=>`
+    <div class="task-row">
+      <div class="checkbox ${t.done?'done':''}" onclick="toggleTask('${t.id}')">${t.done?'✓':''}</div>
+      <span class="prio ${t.prio}"></span>
+      <div class="task-title ${t.done?'done':''}">${escapeHtml(t.title)}</div>
+      <div class="list-meta mono">${t.date}</div>
+      <div class="btn-icon" onclick="deleteTask('${t.id}')">✕</div>
+    </div>`).join('') : '<div class="empty">Noch keine Aufgaben angelegt.</div>';
+}
+
+/* ================= HABITS ================= */
+async function addHabit(){
+  const name = document.getElementById('habit-name').value.trim();
+  if(!name) return;
+  state.habits.push({ id:uid(), name, completedDates:[] });
+  await saveJSON('habits', state.habits);
+  document.getElementById('habit-name').value='';
+  renderHabits(); renderDashboard();
+}
+async function toggleHabit(id){
+  const h = state.habits.find(h=>h.id===id);
+  const idx = (h.completedDates||[]).indexOf(DATE);
+  if(idx>=0) h.completedDates.splice(idx,1); else (h.completedDates=h.completedDates||[]).push(DATE);
+  await saveJSON('habits', state.habits);
+  renderHabits(); renderDashboard();
+}
+async function deleteHabit(id){
+  state.habits = state.habits.filter(h=>h.id!==id);
+  await saveJSON('habits', state.habits);
+  renderHabits(); renderDashboard();
+}
+function habitStreak(h){
+  let streak=0, d=new Date();
+  while(true){
+    const key = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    if((h.completedDates||[]).includes(key)){ streak++; d.setDate(d.getDate()-1);} else break;
+  }
+  return streak;
+}
+function renderHabits(){
+  document.getElementById('habits-list').innerHTML = state.habits.length ? state.habits.map(h=>`
+    <div class="habit-row">
+      <div class="habit-check ${(h.completedDates||[]).includes(DATE)?'done':''}" onclick="toggleHabit('${h.id}')">${(h.completedDates||[]).includes(DATE)?'✓':''}</div>
+      <div class="list-title">${escapeHtml(h.name)}</div>
+      <div class="habit-streak">🔥 ${habitStreak(h)}</div>
+      <div class="btn-icon" onclick="deleteHabit('${h.id}')">✕</div>
+    </div>`).join('') : '<div class="empty">Leg deine erste Gewohnheit an.</div>';
+}
+
+/* ================= GOALS ================= */
+async function addGoal(){
+  const title = document.getElementById('goal-title').value.trim();
+  if(!title) return;
+  state.goals.push({ id:uid(), title, progress:0 });
+  await saveJSON('goals', state.goals);
+  document.getElementById('goal-title').value='';
+  renderGoals();
+}
+async function updateGoal(id, val){
+  const g = state.goals.find(g=>g.id===id);
+  g.progress = Number(val);
+  await saveJSON('goals', state.goals);
+  document.getElementById('goal-pct-'+id).textContent = val+'%';
+  document.getElementById('goal-bar-'+id).style.width = val+'%';
+}
+async function deleteGoal(id){
+  state.goals = state.goals.filter(g=>g.id!==id);
+  await saveJSON('goals', state.goals);
+  renderGoals();
+}
+function renderGoals(){
+  document.getElementById('goals-list').innerHTML = state.goals.length ? state.goals.map(g=>`
+    <div class="goal-row">
+      <div class="goal-top">
+        <div class="goal-title">${escapeHtml(g.title)}</div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="goal-pct" id="goal-pct-${g.id}">${g.progress}%</span>
+          <div class="btn-icon" onclick="deleteGoal('${g.id}')">✕</div>
+        </div>
+      </div>
+      <div class="goal-bar-bg"><div class="goal-bar-fill" id="goal-bar-${g.id}" style="width:${g.progress}%"></div></div>
+      <input class="goal-slider" type="range" min="0" max="100" value="${g.progress}" oninput="updateGoal('${g.id}', this.value)"/>
+    </div>`).join('') : '<div class="empty">Noch keine Ziele gesetzt.</div>';
+}
+
+/* ================= MEHR: WASSER / SCHLAF / STIMMUNG / NOTIZEN ================= */
+function renderMehr(){
+  // water
+  let waterHtml='';
+  for(let i=1;i<=8;i++){
+    waterHtml += `<div class="water-drop ${i<=state.daylog.water?'filled':''}" onclick="setWater(${i})">💧</div>`;
+  }
+  document.getElementById('water-track').innerHTML = waterHtml;
+
+  document.getElementById('sleep-current').textContent = state.daylog.sleep ? `Heute erfasst: ${state.daylog.sleep}h` : 'Noch nichts erfasst.';
+  document.getElementById('sleep-hours').value = state.daylog.sleep || '';
+
+  const moods = ['😞','😕','😐','🙂','😄'];
+  document.getElementById('mood-picker').innerHTML = moods.map(mo=>`
+    <div class="mood-opt ${state.daylog.mood===mo?'selected':''}" onclick="setMood('${mo}')">${mo}</div>`).join('');
+
+  document.getElementById('notes-list').innerHTML = state.notes.length ? state.notes.slice().reverse().map(n=>`
+    <div class="note-item">
+      ${escapeHtml(n.text)}
+      <div class="note-meta">${n.date}</div>
+    </div>`).join('') : '<div class="empty">Noch keine Notizen.</div>';
+}
+async function setWater(n){
+  state.daylog.water = state.daylog.water===n ? n-1 : n;
+  await saveJSON('daylog:'+DATE, state.daylog);
+  renderMehr(); renderDashboard();
+}
+async function saveSleep(){
+  const h = Number(document.getElementById('sleep-hours').value);
+  if(!h) return;
+  state.daylog.sleep = h;
+  await saveJSON('daylog:'+DATE, state.daylog);
+  renderMehr();
+}
+async function setMood(m){
+  state.daylog.mood = m;
+  await saveJSON('daylog:'+DATE, state.daylog);
+  renderMehr();
+}
+async function addNote(){
+  const text = document.getElementById('note-text').value.trim();
+  if(!text) return;
+  state.notes.push({ id:uid(), text, date: new Date().toLocaleString('de-DE') });
+  await saveJSON('notes', state.notes);
+  document.getElementById('note-text').value='';
+  renderMehr();
+}
+
+/* ---------- helpers ---------- */
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+initApp();
+</script>
+</body>
+</html>
